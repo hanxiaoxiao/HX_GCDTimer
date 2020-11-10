@@ -1,8 +1,30 @@
-# HX_GCDTimer
+//
+//  AppDelegate.m
+//  HX_GCDTimer
+//
+//  Created by han xiao on 2020/11/10.
+//
 
-通过GCD封装实现的timer
+#import "AppDelegate.h"
+#import "ViewController.h"
 
-当App进入后台后，定时器会自动暂停，为了让定时器一直跑我们需要加上下面代码：
+@interface AppDelegate ()
+
+@end
+
+@implementation AppDelegate
+
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    
+    self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    self.window.backgroundColor = [UIColor whiteColor];
+    
+    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:[ViewController new]];
+    self.window.rootViewController = nav;
+    [self.window makeKeyAndVisible];
+    
+    return YES;
+}
 
 - (void)applicationDidEnterBackground:(UIApplication *)application {
     
@@ -26,11 +48,5 @@
     });
 }
 
-使用起来非常简单，导入头文件#import "UIButton+wdp_action_style.h"
 
-在按钮的点击事件中添加如下代码：
-
-[btn countDownFromTime:60 title:@"获取验证码" unitTitle:@"s重新获得" mainColor:[UIColor lightGrayColor] countColor:[UIColor redColor] isJoin:NO];
-
-其他
-这个类里面也实现了扩大按钮点击区域，以及实现图片加文字按钮的时候，自定义文字位置
+@end
